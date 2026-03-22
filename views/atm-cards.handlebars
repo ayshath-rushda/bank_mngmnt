@@ -1,0 +1,60 @@
+<section class="cards">
+    <article class="card">
+        <h2>ATM Cards</h2>
+        {{#if message}}
+            <p class="message">{{message}}</p>
+        {{/if}}
+        <form action="/web/atm-cards" method="post">
+            <label>
+                Card Number
+                <input type="text" name="cardno" required />
+            </label>
+            <label>
+                Expiry Date
+                <input type="date" name="expDate" />
+            </label>
+            <label>
+                Card Type
+                <select name="cardType" required>
+                    <option value="">Select type</option>
+                    <option value="debit">Debit</option>
+                    <option value="credit">Credit</option>
+                </select>
+            </label>
+            <label>
+                Account
+                <select name="account" required>
+                    <option value="">Select account</option>
+                    {{#each accounts}}
+                        <option value="{{this._id}}">{{this.acno}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <button type="submit">Create Card</button>
+        </form>
+    </article>
+
+    <article class="card">
+        <h2>All ATM Cards</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Card Number</th>
+                    <th>Type</th>
+                    <th>Expiry</th>
+                    <th>Account</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each atmCards}}
+                    <tr>
+                        <td>{{this.cardno}}</td>
+                        <td>{{this.cardType}}</td>
+                        <td>{{this.expDate}}</td>
+                        <td>{{this.account.acno}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </article>
+</section>

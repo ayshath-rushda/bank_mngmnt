@@ -1,0 +1,50 @@
+<section class="cards">
+    <article class="card">
+        <h2>Loans</h2>
+        {{#if message}}
+            <p class="message">{{message}}</p>
+        {{/if}}
+        <form action="/web/loans" method="post">
+            <label>
+                Amount
+                <input type="number" name="amount" min="1" step="0.01" required />
+            </label>
+            <label>
+                Date
+                <input type="date" name="date" />
+            </label>
+            <label>
+                Account
+                <select name="account" required>
+                    <option value="">Select account</option>
+                    {{#each accounts}}
+                        <option value="{{this._id}}">{{this.acno}} (bal: {{this.balance}})</option>
+                    {{/each}}
+                </select>
+            </label>
+            <button type="submit">Create Loan</button>
+        </form>
+    </article>
+
+    <article class="card">
+        <h2>All Loans</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Account</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each loans}}
+                    <tr>
+                        <td>{{this.amount}}</td>
+                        <td>{{this.date}}</td>
+                        <td>{{this.account.acno}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </article>
+</section>

@@ -1,0 +1,28 @@
+<section class="card">
+    <h2>Dashboard</h2>
+    {{#if message}}
+        <p class="message">{{message}}</p>
+    {{/if}}
+    <div class="grid">
+        <article class="stat">
+            <p>Users</p>
+            <strong>{{stats.usersCount}}</strong>
+        </article>
+        <article class="stat">
+            <p>Accounts</p>
+            <strong>{{stats.accountsCount}}</strong>
+        </article>
+        <article class="stat">
+            <p>ATM Cards</p>
+            <strong>{{stats.cardsCount}}</strong>
+        </article>
+        <article class="stat">
+            <p>Loans</p>
+            <strong>{{stats.loansCount}}</strong>
+        </article>
+        <article class="stat">
+            <p>Transactions</p>
+            <strong>{{stats.transactionsCount}}</strong>
+        </article>
+    </div>
+</section>

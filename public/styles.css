@@ -1,0 +1,188 @@
+:root {
+    --bg: #f4f2ea;
+    --ink: #1e1d1a;
+    --panel: #fffcf3;
+    --accent: #0f766e;
+    --accent-2: #b45309;
+    --line: #d9d3c2;
+    --ok: #14532d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 20% -10%, #efe4c6 0%, rgba(239, 228, 198, 0) 45%),
+        radial-gradient(circle at 100% 0%, #d9f3ef 0%, rgba(217, 243, 239, 0) 42%),
+        var(--bg);
+    min-height: 100vh;
+}
+
+.topbar {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 252, 243, 0.85);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.03em;
+}
+
+.topbar nav {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.topbar a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.page {
+    width: min(1100px, 94%);
+    margin: 1.5rem auto 2.5rem;
+    animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    margin-top: 0;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1rem;
+}
+
+.stat p {
+    margin: 0;
+    color: #5f5847;
+    font-size: 0.9rem;
+}
+
+.stat strong {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 1.5rem;
+}
+
+.cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1rem;
+}
+
+form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+label {
+    display: grid;
+    gap: 0.25rem;
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+input,
+select {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.6rem 0.7rem;
+    font-size: 0.95rem;
+    background: #fffef9;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    font-weight: 800;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+}
+
+.message {
+    border: 1px solid #9ed6cc;
+    background: #e7f8f4;
+    color: var(--ok);
+    border-radius: 10px;
+    padding: 0.65rem 0.8rem;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.92rem;
+}
+
+th {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+@media (max-width: 800px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        padding: 1rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
