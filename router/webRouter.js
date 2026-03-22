@@ -53,6 +53,11 @@ router.post("/users", async (req, res) => {
     res.redirect("/web/users?message=User%20created");
 });
 
+router.post("/users/delete/:id", async (req, res) => {
+    await User.findByIdAndDelete(req.params.id);
+    res.redirect("/web/users?message=User%20deleted");
+});
+
 router.get("/accounts", async (req, res) => {
     const [accounts, users] = await Promise.all([
         Account.find().populate("user").sort({ createdAt: -1 }),
@@ -77,6 +82,11 @@ router.post("/accounts", async (req, res) => {
     res.redirect("/web/accounts?message=Account%20created");
 });
 
+router.post("/accounts/delete/:id", async (req, res) => {
+    await Account.findByIdAndDelete(req.params.id);
+    res.redirect("/web/accounts?message=Account%20deleted");
+});
+
 router.get("/atm-cards", async (req, res) => {
     const [atmCards, accounts] = await Promise.all([
         AtmCard.find().populate("account").sort({ createdAt: -1 }),
@@ -94,6 +104,11 @@ router.get("/atm-cards", async (req, res) => {
 router.post("/atm-cards", async (req, res) => {
     await AtmCard.create(req.body);
     res.redirect("/web/atm-cards?message=ATM%20card%20created");
+});
+
+router.post("/atm-cards/delete/:id", async (req, res) => {
+    await AtmCard.findByIdAndDelete(req.params.id);
+    res.redirect("/web/atm-cards?message=ATM%20card%20deleted");
 });
 
 router.get("/loans", async (req, res) => {
@@ -132,6 +147,11 @@ router.post("/loans", async (req, res) => {
     });
 
     return res.redirect("/web/loans?message=Loan%20created%20and%20balance%20updated");
+});
+
+router.post("/loans/delete/:id", async (req, res) => {
+    await Loan.findByIdAndDelete(req.params.id);
+    res.redirect("/web/loans?message=Loan%20deleted");
 });
 
 router.get("/transactions", async (req, res) => {

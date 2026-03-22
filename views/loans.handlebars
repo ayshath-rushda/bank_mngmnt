@@ -34,6 +34,7 @@
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Account</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +43,11 @@
                         <td>{{this.amount}}</td>
                         <td>{{this.date}}</td>
                         <td>{{this.account.acno}}</td>
+                        <td>
+                            <form action="/web/loans/delete/{{this._id}}" method="post" style="display:inline;">
+                                <button type="submit" style="background:#c73e1d; padding: 0.4rem 0.6rem; font-size: 0.8rem;">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 {{/each}}
             </tbody>

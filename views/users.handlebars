@@ -29,6 +29,7 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>DOB</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,11 @@
                         <td>{{this.name}}</td>
                         <td>{{this.phone}}</td>
                         <td>{{formatDate this.dob}}</td>
+                        <td>
+                            <form action="/web/users/delete/{{this._id}}" method="post" style="display:inline;">
+                                <button type="submit" style="background:#c73e1d; padding: 0.4rem 0.6rem; font-size: 0.8rem;">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 {{/each}}
             </tbody>
